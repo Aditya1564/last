@@ -1,0 +1,50 @@
+/* LOGO SIZE OVERRIDE - Last loaded CSS to ensure it takes precedence */
+
+img.nama-logo,
+.nama-logo,
+img[class="nama-logo"],
+img[class*="nama-logo"],
+a img.nama-logo,
+a > img.nama-logo,
+.nama-header img,
+.nama-header-mobile img {
+  border-radius: 80%!important;
+  width: 150px!important;
+  height: auto!important;
+  max-width: 100%!important;
+  min-width: 150px!important;
+  object-fit: cover!important;
+}
+
+/* Center Logo Basic Style */
+
+
+.center-logo img,
+.center-logo > img,
+div.center-logo img,
+.center-logo img.nama-logo {
+  width: 150px!important;
+  height: auto!important;
+  max-width: 100%!important;
+  min-width: 150px!important;
+  object-fit: cover!important;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  img.nama-logo,
+  .nama-logo,
+  .center-logo img {
+    width: 120px!important;
+    min-width: 120px!important;
+  }
+}
+
+@media (max-width: 480px) {
+  img.nama-logo,
+  .nama-logo,
+  .center-logo img {
+    width: 100px!important;
+    min-width: 100px!important;
+  }
+}

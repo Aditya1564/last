@@ -1,0 +1,8 @@
+# Redirect all .html extensions to clean URLs
+/*.html  /:splat  301!
+
+# Handle clean URLs for all pages
+/*    /index.html   200
+
+# Avoid 404 errors by sending users to the home page
+/404    /index.html   200
