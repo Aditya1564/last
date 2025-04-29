@@ -5,19 +5,19 @@
   # If you had a build command, it would go here (not needed for your simple HTML site)
   # command = "npm run build"
 
-# This section sets up redirects and clean URLs
+# This section sets up redirects for clean URLs and SPA support
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/404"
+  to = "/index.html"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Clean URLs configuration
-[[plugins]]
-  package = "netlify-plugin-cache"
-
-# Force pretty URLs (no .html extension)
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-  
-  [plugins.inputs]
-  prettyURLs = true
