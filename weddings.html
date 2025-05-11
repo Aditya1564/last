@@ -268,108 +268,98 @@ At Maharashtrian Wedding, we specialize in capturing the timeless beauty, vibran
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" defer></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var grid = document.querySelector('.rkwedding-editorial-gallery-imgs');
-        var masonry = new Masonry(grid, {
-            itemSelector: '.grid-item',
-            columnWidth: '.grid-item',
-        });
-        document.addEventListener('lazyloaded', function(e) {
-            masonry.layout();
-        });
-        $(window).on("load", function() {
-            $(".rkwedding-editorial-gallery-imgs .editorial-gallery-images").click(function() {
-                if ($(this).hasClass("gallery-video")) {
-                    $(".lightbox").append(`<video class='gallery-box' data-src='${$(this).attr("data-src")}' controls><source src='${$(this).attr("data-src")}' alt='${$(this).attr("alt")}'>`);
-                } else {
-                    $(".lightbox").append(`<img src='${$(this).attr("data-src")}' data-src='${$(this).attr("data-src")}' alt='${$(this).attr("alt")}' class='gallery-box' />`);
-                }
-                $(".lightbox").fadeIn(300);
-                $(".filter").css("background-image", `url(${$(this).attr("src")})`);
-                $(".title").append(`<h1>${$(this).attr("alt")}</h1>`);
-                $("html").css("overflow", "hidden");
-                if ($(this).is(":last-child")) {
-                    $(".arrowr").css("display", "none");
-                    $(".arrowl").css("display", "block");
-                } else if ($(this).is(":first-child")) {
-                    $(".arrowr").css("display", "block");
-                    $(".arrowl").css("display", "none");
-                } else {
-                    $(".arrowr").css("display", "block");
-                    $(".arrowl").css("display", "block");
-                }
-            });
+  document.addEventListener('DOMContentLoaded', function() {
+  var grid = document.querySelector('.photography-editorial-gallery-imgs');
+  var masonry = new Masonry(grid, {
+  itemSelector: '.grid-item',
+  columnWidth: '.grid-item',
+  });
+  document.addEventListener('lazyloaded', function(e) {
+  masonry.layout();
+  });
+  $(window).on("load", function() {
+  $(".photography-editorial-gallery-imgs .editorial-gallery-images").click(function() {
+  if ($(this).hasClass("gallery-video")) {
+  $(".lightbox").append(`<video class='gallery-box' data-src='${$(this).attr("data-src")}' controls><source src='${$(this).attr("data-src")}' alt='${$(this).attr("alt")}'>`);
+  } else {
+  $(".lightbox").append(`<img src='${$(this).attr("data-src")}' data-src='${$(this).attr("data-src")}' alt='${$(this).attr("alt")}' class='gallery-box' />`);
+  }
+  $(".lightbox").fadeIn(300);
+  $(".filter").css("background-image", `url(${$(this).attr("data-src")})`);
+  $(".title").append(`<h1>${$(this).attr("alt")}</h1>`);
+  $("html").css("overflow", "hidden");
+  if ($(this).is(":last-child")) {
+  $(".arrowr").css("display", "none");
+  $(".arrowl").css("display", "block");
+  } else if ($(this).is(":first-child")) {
+  $(".arrowr").css("display", "block");
+  $(".arrowl").css("display", "none");
+  } else {
+  $(".arrowr").css("display", "block");
+  $(".arrowl").css("display", "block");
+  }
+  });
 
-            $(".close").click(function() {
-                $(".lightbox").fadeOut(300);
-                $(".lightbox img").remove();
-                $(".lightbox video").remove();
-                $("html").css("overflow", "unset");
-            });
+  $(".close").click(function() {
+  $(".lightbox").fadeOut(300);
+  $(".lightbox img").remove();
+  $(".lightbox video").remove();
+  $("html").css("overflow", "unset");
+  });
 
-            $(".arrowr").click(function() {
-                var a = $(".lightbox .gallery-box").attr("data-src"),
-                    t = $(".rkwedding-editorial-gallery").find(`[data-src='${a}']`).next();
-                $(".lightbox .gallery-box").remove();
-                if (t.hasClass("gallery-video")) {
-                    $(".lightbox").append(`<video class='gallery-box' data-src='${t.attr("data-src")}' controls><source src='${t.attr("data-src")}' alt='${t.attr("alt")}'>`);
-                    $(".filter").css("background-image", "none");
-                } else {
-                    $(".lightbox").append(`<img src='${t.attr("src")}' alt='${t.attr("alt")}' data-src='${t.attr("src")}' class='gallery-box' />`);
-                    $(".filter").css("background-image", `url(${t.attr("src")})`);
-                }
-                $(".lightbox h1").html(t.attr("alt"));
-                if (t.is(":last-child")) {
-                    $(".arrowr").css("display", "none");
-                } else {
-                    $(".arrowl").css("display", "block");
-                }
-            });
+  $(".arrowr").click(function() {
+  var a = $(".lightbox .gallery-box").attr("data-src"),
+  t = $(".photography-editorial-gallery-imgs").find(`[data-src='${a}']`).next();
+  $(".lightbox .gallery-box").remove();
+  if (t.hasClass("gallery-video")) {
+  $(".lightbox").append(`<video class='gallery-box' data-src='${t.attr("data-src")}' controls><source src='${t.attr("data-src")}' alt='${t.attr("alt")}'>`);
+  $(".filter").css("background-image", "none");
+  } else {
+  $(".lightbox").append(`<img src='${t.attr("data-src")}' alt='${t.attr("alt")}' data-src='${t.attr("data-src")}' class='gallery-box' />`);
+  $(".filter").css("background-image", `url(${t.attr("data-src")})`);
+  }
+  $(".lightbox h1").html(t.attr("alt"));
+  if (t.is(":last-child")) {
+  $(".arrowr").css("display", "none");
+  } else {
+  $(".arrowl").css("display", "block");
+  }
+  });
 
-            $(".arrowl").click(function() {
-                var a = $(".lightbox .gallery-box").attr("data-src"),
-                    t = $(".rkwedding-editorial-gallery").find(`[data-src='${a}']`).prev();
-                $(".lightbox .gallery-box").remove();
-                if (t.hasClass("gallery-video")) {
-                    $(".lightbox").append(`<video class='gallery-box' data-src='${t.attr("data-src")}' controls><source src='${t.attr("data-src")}' alt='${t.attr("alt")}'>`);
-                    $(".filter").css("background-image", "none");
-                } else {
-                    $(".lightbox").append(`<img src='${t.attr("src")}' alt='${t.attr("alt")}' data-src='${t.attr("src")}' class='gallery-box' />`);
-                    $(".filter").css("background-image", `url(${t.attr("src")})`);
-                }
-                $(".lightbox h1").html(t.attr("alt"));
-                if (t.is(":first-child")) {
-                    $(".arrowl").css("display", "none");
-                } else {
-                    $(".arrowr").css("display", "block");
-                }
-            });
-        });
-        $(document).ready(function() {
-            $("input[placeholder],textarea,select").each(function() {
-                $(this).attr("data-placeholder", this.placeholder);
-                $(this).bind("focus", function() {
-                    this.placeholder = '';
-                });
-                $(this).bind("blur", function() {
-                    this.placeholder = $(this).attr("data-placeholder");
-                });
-            });
-        });
-    });
-</script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const dropdownButton = document.getElementById("uniquenav-dropdown-btn");
-            const portfolioMenu = document.getElementById("uniquenav-portfolio-menu");
-            // Toggle submenu for "Portfolio"
-            dropdownButton.addEventListener("click", function(e) {
-                e.preventDefault(); // Prevent default button behavior
-                dropdownButton.classList.toggle("active");
-                portfolioMenu.classList.toggle("active");
-            });
-        });
-        </script>
-    </body>
+  $(".arrowl").click(function() {
+  var a = $(".lightbox .gallery-box").attr("data-src"),
+  t = $(".photography-editorial-gallery-imgs").find(`[data-src='${a}']`).prev();
+  $(".lightbox .gallery-box").remove();
+  if (t.hasClass("gallery-video")) {
+  $(".lightbox").append(`<video class='gallery-box' data-src='${t.attr("data-src")}' controls><source src='${t.attr("data-src")}' alt='${t.attr("alt")}'>`);
+  $(".filter").css("background-image", "none");
+  } else {
+  $(".lightbox").append(`<img src='${t.attr("data-src")}' alt='${t.attr("alt")}' data-src='${t.attr("data-src")}' class='gallery-box' />`);
+  $(".filter").css("background-image", `url(${t.attr("data-src")})`);
+  }
+  $(".lightbox h1").html(t.attr("alt"));
+  if (t.is(":first-child")) {
+  $(".arrowl").css("display", "none");
+  } else {
+  $(".arrowr").css("display", "block");
+  }
+  });
+  });
+  $(document).ready(function() {
+  $("input[placeholder],textarea,select").each(function() {
+  $(this).attr("data-placeholder", this.placeholder);
+  $(this).bind("focus", function() {
+  this.placeholder = '';
+  });
+  $(this).bind("blur", function() {
+  this.placeholder = $(this).attr("data-placeholder");
+  });
+  });
+  });
+  });
+  </script>
+  
+  <script src="scroll-up.js"></script>
+  <script src="custom.js"></script>
+  </body>
 </html>
-
